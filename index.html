@@ -1,369 +1,114 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="bs" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coach Veseli | Online Trening i Mentorstvo</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Veseli</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">VE<span>SELI</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">O meni</a></li>
-    <li><a href="#programs">Programi</a></li>
-    <li><a href="#results">Rezultati</a></li>
-    <li><a href="#testimonials">Utisci</a></li>
-    <li><a href="#contact" class="nav-cta">Prijavi se</a></li>
-  </ul>
-</nav>
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" role="navigation" aria-label="Glavna navigacija">
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-left">
-    <div class="hero-tag">Online Trening &amp; Mentorstvo</div>
-    <h1 class="hero-title">
-      <span class="line1">NAPREDAK</span>
-      <span class="line2">DOLAZI</span>
-      <span class="line3">SADA.</span>
-    </h1>
-    <p class="hero-subtitle">
-      Prilagođeni planovi treninga, mentorstvo i rezultati koji traju.
-      Napusti zonu komfora i postani <strong>najbolja verzija sebe</strong>.
-    </p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Započni danas</a>
-      <a href="#programs" class="btn-outline">Pogledaj programe</a>
+    <!-- Logo -->
+    <a href="#pocetna" class="nav-logo" aria-label="Coach Veseli – početna">
+      <img src="assets/images/logo.png" alt="Coach Veseli" />
+    </a>
+
+    <!-- Desktop nav links -->
+    <ul class="nav-links" role="list">
+      <li><a href="#pocetna" class="active">
+        <span class="num">01</span> Početna <span class="sep">//</span>
+      </a></li>
+      <li><a href="#programi">
+        <span class="num">02</span> Programi <span class="sep">//</span>
+      </a></li>
+      <li><a href="#moja-prica">
+        <span class="num">03</span> Moja priča <span class="sep">//</span>
+      </a></li>
+      <li><a href="#kontakt">
+        <span class="num">04</span> Kontakt <span class="sep">//</span>
+      </a></li>
+    </ul>
+
+    <!-- Right controls -->
+    <div class="nav-controls">
+      <button class="btn-theme" id="themeToggle" aria-label="Promijeni temu">
+        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="4"/>
+          <path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="hidden">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+        </svg>
+      </button>
+
+      <button class="btn-primary btn-desktop-only">Počni trening</button>
+      <button class="btn-outline btn-desktop-only">Kupi program</button>
+
+      <button class="btn-hamburger" id="menuOpen" aria-label="Otvori meni" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <div class="hero-stats">
-      <div>
-        <span class="counter-num" data-target="7">0</span>
-        <div class="hero-stat-label">Godina iskustva</div>
+  </nav>
+
+  <!-- ═══════════ MOBILE MENU ═══════════ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobilna navigacija">
+    <div class="mobile-menu-header">
+      <a href="#pocetna" class="nav-logo" aria-label="Coach Veseli">
+        <img src="assets/images/logo.png" alt="Coach Veseli" />
+      </a>
+      <div class="mobile-menu-header-controls">
+        <button class="btn-theme" id="themeToggleMobile" aria-label="Promijeni temu">
+          <svg id="iconSunMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="4"/>
+            <path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg id="iconMoonMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="btn-close" id="menuClose" aria-label="Zatvori meni">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
-      <div>
-        <span class="counter-num" data-target="150">0</span>
-        <div class="hero-stat-label">Zadovoljnih klijenata</div>
-      </div>
-      <div>
-        <span class="counter-num" data-target="10">0</span>
-        <div class="hero-stat-label">Godina u sportu</div>
-      </div>
+    </div>
+
+    <ul class="mobile-nav-list" role="list">
+      <li><a href="#pocetna" class="mobile-link active">
+        <span class="num">01</span> Početna
+      </a></li>
+      <li><a href="#programi" class="mobile-link">
+        <span class="num">02</span> Programi
+      </a></li>
+      <li><a href="#moja-prica" class="mobile-link">
+        <span class="num">03</span> Moja priča
+      </a></li>
+      <li><a href="#kontakt" class="mobile-link">
+        <span class="num">04</span> Kontakt
+      </a></li>
+    </ul>
+
+    <div class="mobile-btns">
+      <button class="btn-primary">Počni trening</button>
+      <button class="btn-outline">Kupi program</button>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img-frame">
-      <img src="https://veseli.fit/wp-content/uploads/2025/06/2P5A38542.png" alt="Coach Veseli">
-      <div class="hero-badge">
-        <div class="hero-badge-top">Online coaching</div>
-        <div class="hero-badge-val">24/7</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot"></span> Trening</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Ishrana</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Mentorstvo</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Snaga</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Disciplina</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Fokus</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Rezultati</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Napredak</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Transformacija</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Trening</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Ishrana</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Mentorstvo</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Snaga</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Disciplina</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Fokus</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Rezultati</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Napredak</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Transformacija</span>
-  </div>
-</div>
+  <!-- Sadržaj stranice -->
+  <main>
+    <section id="pocetna" style="min-height:100vh;"></section>
+    <section id="programi" style="min-height:100vh;"></section>
+    <section id="moja-prica" style="min-height:100vh;"></section>
+    <section id="kontakt" style="min-height:100vh;"></section>
+  </main>
 
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-img-wrap reveal-left">
-    <img src="https://veseli.fit/wp-content/uploads/2025/06/2P5A4042-1-1.png" alt="Coach Veseli">
-  </div>
-  <div class="about-text">
-    <p class="section-tag reveal">O meni</p>
-    <h2 class="section-title reveal">OD STRASTI<br>DO <span>SVRHE</span></h2>
-    <p class="reveal delay-1">
-      Vođen nepokolebljivom posvećenošću pokretu, mentalitetu i napretku, pretvorio sam
-      <strong>vlastiti put u misiju</strong> – da inspirišem druge da otključaju svoj puni potencijal.
-    </p>
-    <p class="reveal delay-2">
-      Ovo nije samo trening – ovo je stil života izgrađen na <strong>disciplini, viziji i rastu</strong>.
-      Svaki klijent dobija individualni pristup, jer svačiji put je jedinstven.
-    </p>
-    <div class="about-values reveal delay-3">
-      <div class="about-value">
-        <div class="about-value-title">Personalizovan pristup</div>
-        <div class="about-value-text">Svaki plan kreiran posebno za tebe</div>
-      </div>
-      <div class="about-value">
-        <div class="about-value-title">Stručnost i iskustvo</div>
-        <div class="about-value-text">7+ godina rada s klijentima</div>
-      </div>
-      <div class="about-value">
-        <div class="about-value-title">Online podrška</div>
-        <div class="about-value-text">Dostupan 24/7 za sva pitanja</div>
-      </div>
-      <div class="about-value">
-        <div class="about-value-title">Mjerljivi rezultati</div>
-        <div class="about-value-text">Praćenje napretka svakih 4 sedmice</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAMS -->
-<section class="programs-section" id="programs">
-  <p class="section-tag reveal">Šta nudim</p>
-  <h2 class="section-title reveal">MOJI <span>PROGRAMI</span></h2>
-
-  <div class="programs-grid">
-    <div class="program-card reveal delay-1">
-      <div class="program-card-header">
-        <div class="program-icon">🏋️</div>
-        <span class="program-badge">Najpopularnije</span>
-      </div>
-      <div class="program-card-body">
-        <div class="program-title">Online Mentorstvo</div>
-        <p class="program-desc">Tvoj lični plan uspjeha. Program prilagođen tačno tvojim ciljevima, sposobnostima i stilu života.</p>
-        <ul class="program-features">
-          <li>Detaljna konsultacija</li>
-          <li>Personalizovan plan treninga (3 mjes.)</li>
-          <li>Personalizovan plan ishrane</li>
-          <li>Onlajn podrška i video kontakt</li>
-          <li>Video prikaz vježbi</li>
-        </ul>
-        <div class="program-cta">
-          <a href="#contact">Prijavi se</a>
-          <div class="program-arrow">→</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="program-card reveal delay-2">
-      <div class="program-card-header">
-        <div class="program-icon">📋</div>
-        <span class="program-badge">Trening</span>
-      </div>
-      <div class="program-card-body">
-        <div class="program-title">Plan Treninga</div>
-        <p class="program-desc">3 treninga sedmično, osmišljenih da te vode ka željenim rezultatima korak po korak.</p>
-        <ul class="program-features">
-          <li>3 treninga nedeljno</li>
-          <li>Plan za 3 mjeseca</li>
-          <li>Fokus na snagu i funkcionalnost</li>
-          <li>Prilagođavanje kroz napredak</li>
-        </ul>
-        <div class="program-cta">
-          <a href="#contact">Saznam više</a>
-          <div class="program-arrow">→</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="program-card reveal delay-3">
-      <div class="program-card-header">
-        <div class="program-icon">🥗</div>
-        <span class="program-badge">Ishrana</span>
-      </div>
-      <div class="program-card-body">
-        <div class="program-title">Plan Ishrane</div>
-        <p class="program-desc">Pametan pristup bez gladovanja i restrikcija. Naučiš kako da jedeš ispravno i održivo.</p>
-        <ul class="program-features">
-          <li>Personalizovan plan ishrane</li>
-          <li>Primjeri obroka i recepti</li>
-          <li>Prilagodljiv tvojoj svakodnevnici</li>
-          <li>Prilagođavanje prema napretku</li>
-        </ul>
-        <div class="program-cta">
-          <a href="#contact">Saznam više</a>
-          <div class="program-arrow">→</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRANSFORMATION -->
-<section class="transform-section" id="results">
-  <div class="transform-inner">
-    <div>
-      <p class="section-tag reveal">Moja transformacija</p>
-      <h2 class="section-title reveal">PRAVI <span>REZULTATI</span></h2>
-      <p style="color:var(--text-secondary);font-size:16px;line-height:1.7;margin-bottom:30px;font-weight:300;" class="reveal delay-1">
-        Kako možete transformisati tijelo uz 100% posvećenost planu. Evo dokaza da je moguće.
-      </p>
-      <div class="metric-grid">
-        <div class="metric-card reveal delay-2">
-          <span class="counter-num" data-target="7">0</span>
-          <div class="metric-label">Godina iskustva</div>
-        </div>
-        <div class="metric-card reveal delay-3">
-          <span class="counter-num" data-target="10">0</span>
-          <div class="metric-label">Godina u sportu</div>
-        </div>
-        <div class="metric-card reveal delay-4">
-          <span class="counter-num" data-target="150">0</span>
-          <div class="metric-label">Klijenata</div>
-        </div>
-        <div class="metric-card reveal delay-5">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--blue-200);line-height:1;display:block;">100%</span>
-          <div class="metric-label">Posvećenost</div>
-        </div>
-      </div>
-    </div>
-    <div class="reveal-right">
-      <div class="transform-grid">
-        <div class="transform-pair">
-          <div class="transform-label">Prije</div>
-          <img class="transform-img" src="https://veseli.fit/wp-content/uploads/2025/06/IMG_7939.jpg" alt="Prije">
-          <img class="transform-img" src="https://veseli.fit/wp-content/uploads/2025/06/IMG_7938.jpg" alt="Prije 2" style="margin-top:8px">
-        </div>
-        <div class="transform-pair">
-          <div class="transform-label">Poslije</div>
-          <img class="transform-img" src="https://veseli.fit/wp-content/uploads/2025/06/IMG_7936.jpg" alt="Poslije">
-          <img class="transform-img" src="https://veseli.fit/wp-content/uploads/2025/06/IMG_7937.jpg" alt="Poslije 2" style="margin-top:8px">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="testimonials">
-  <p class="section-tag reveal">Utisci klijenata</p>
-  <h2 class="section-title reveal">ŠTA KAŽU <span>DRUGI</span></h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal delay-1">
-      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"Trening s njim je kombinacija discipline i podrške. Vaspitan, kulturan i nevjerovatno intuitivan, zna tačno kada da motiviše. Nije samo trener, već i neko ko te podsjeti zašto si počeo."</p>
-      <div class="testimonial-author">
-        <img class="testimonial-avatar" src="https://veseli.fit/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-27-at-23.18.27_682e772e-150x150.jpg" alt="Stankica">
-        <div>
-          <div class="testimonial-name">Stankica Stojanović</div>
-          <div class="testimonial-role">Klijent</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card reveal delay-2">
-      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"Počeo sam trenirati sa Nemanjom u 46. godini i za godinu dana došao do najbolje forme u kojoj sam ikada bio. Ovakav napredak nisam imao nikada. Vrhunski profesionalac!"</p>
-      <div class="testimonial-author">
-        <img class="testimonial-avatar" src="https://veseli.fit/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-27-at-22.46.04_26960974-150x150.jpg" alt="Drago">
-        <div>
-          <div class="testimonial-name">Drago Gverić</div>
-          <div class="testimonial-role">Klijent</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card reveal delay-3">
-      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"Najbolji trener koji je odradio rehabilitaciju mog koljena nakon operacije i podigao kvalitet mog treninga na jedan sasvim novi nivo. Posebne pohvale za posvećenost svakom treningu."</p>
-      <div class="testimonial-author">
-        <img class="testimonial-avatar" src="https://veseli.fit/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-27-at-22.53.51_54c620a2-1-150x150.jpg" alt="Danijela">
-        <div>
-          <div class="testimonial-name">Danijela Bubulj</div>
-          <div class="testimonial-role">Klijent</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card reveal delay-4">
-      <div class="testimonial-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="testimonial-text">"Nemanja ne priča mnogo, on radi. Njegovi treninzi su brutalni i baš zato daju prave rezultate. Ako želiš da postaneš jači i istrajniji, nemoj da tražiš dalje – Nemanja je trener za tebe."</p>
-      <div class="testimonial-author">
-        <img class="testimonial-avatar" src="https://veseli.fit/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-27-at-22.53.51_fe20e401-150x150.jpg" alt="Vladimir">
-        <div>
-          <div class="testimonial-name">Vladimir Čavor</div>
-          <div class="testimonial-role">Klijent</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div>
-    <p class="section-tag reveal">Kontakt</p>
-    <h2 class="section-title reveal">PRIPREMI SE<br>ZA <span>PROMJENU</span></h2>
-    <p style="color:var(--text-secondary);font-size:16px;line-height:1.7;margin-bottom:40px;font-weight:300;" class="reveal delay-1">
-      Ispuni formu i napravi prvi korak ka transformaciji. Lično ću kreirati plan baš za tebe.
-    </p>
-    <div class="contact-info reveal delay-2">
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-item-label">Lokacija</div>
-          <div class="contact-item-value">Online – dostupan svugdje</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div>
-          <div class="contact-item-label">Instagram</div>
-          <div class="contact-item-value">@veseli.fit</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">⏱️</div>
-        <div>
-          <div class="contact-item-label">Odgovor</div>
-          <div class="contact-item-value">Unutar 24 sata</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="contact-form reveal-right">
-    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:28px;">POPUNI FORMU</h3>
-    <div class="form-row">
-      <label class="form-label">Ime i prezime</label>
-      <input type="text" class="form-input" placeholder="Tvoje ime">
-    </div>
-    <div class="form-row">
-      <label class="form-label">E-mail</label>
-      <input type="email" class="form-input" placeholder="tvoj@email.com">
-    </div>
-    <div class="form-row">
-      <label class="form-label">Cilj</label>
-      <input type="text" class="form-input" placeholder="Npr. gubitak kilograma, definicija...">
-    </div>
-    <div class="form-row">
-      <label class="form-label">Poruka</label>
-      <textarea class="form-input" placeholder="Reci mi o sebi – visina, kilaža, iskustvo, ciljevi..."></textarea>
-    </div>
-    <button class="btn-primary" style="width:100%;margin-top:8px;padding:18px;">POŠALJI ZAHTJEV</button>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">VE<span>SELI</span></div>
-  <div class="footer-links">
-    <a href="#about">O meni</a>
-    <a href="#programs">Programi</a>
-    <a href="#testimonials">Utisci</a>
-    <a href="#contact">Kontakt</a>
-  </div>
-  <div class="footer-copy">© 2025 Coach Veseli. Sva prava zadržana.</div>
-</footer>
-
-<script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

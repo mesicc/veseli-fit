@@ -1,40 +1,91 @@
-// NAV SCROLL
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
+/* ============================================================
+   Coach Veseli – main.js
+   ============================================================ */
 
-// REVEAL ON SCROLL
-const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── 1. THEME TOGGLE ── */
+  var html              = document.documentElement;
+  var themeToggle       = document.getElementById('themeToggle');
+  var themeToggleMobile = document.getElementById('themeToggleMobile');
+  var iconSun           = document.getElementById('iconSun');
+  var iconMoon          = document.getElementById('iconMoon');
+  var iconSunMobile     = document.getElementById('iconSunMobile');
+  var iconMoonMobile    = document.getElementById('iconMoonMobile');
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('veseli-theme', theme);
+    var isDark = theme === 'dark';
+    iconSun.classList.toggle('hidden', !isDark);
+    iconMoon.classList.toggle('hidden', isDark);
+    iconSunMobile.classList.toggle('hidden', !isDark);
+    iconMoonMobile.classList.toggle('hidden', isDark);
+  }
+
+  function toggleTheme() {
+    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  }
+
+  setTheme(localStorage.getItem('veseli-theme') || 'dark');
+  themeToggle.addEventListener('click', toggleTheme);
+  themeToggleMobile.addEventListener('click', toggleTheme);
+
+
+  /* ── 2. MOBILE MENU ── */
+  var mobileMenu  = document.getElementById('mobileMenu');
+  var menuOpen    = document.getElementById('menuOpen');
+  var menuClose   = document.getElementById('menuClose');
+  var mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    menuOpen.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    menuOpen.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+
+  menuOpen.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(function (link) {
+    link.addEventListener('click', closeMenu);
   });
-}, { threshold: 0.12 });
-revealEls.forEach(el => observer.observe(el));
 
-// COUNTER ANIMATION
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const duration = 1800;
-  const start = performance.now();
-  const step = (now) => {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target);
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target + (target >= 100 ? '+' : '+');
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+
+  /* ── 3. AKTIVAN LINK PREMA URL-u ── */
+  var currentPath = window.location.pathname;
+  var allLinks    = document.querySelectorAll('.nav-links a, .mobile-link');
+
+  // Mapiranje stranica na href vrijednosti
+  var pageMap = {
+    '/':            '#pocetna',
+    '/index.html':  '#pocetna',
+    '/programi/index.html':    '#programi',
+    '/o-meni/index.html':      '#moja-prica',
+    '/kontakt/index.html':     '#kontakt',
   };
-  requestAnimationFrame(step);
-}
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateCounter(e.target);
-      counterObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+  var activeHref = pageMap[currentPath];
+
+  if (activeHref) {
+    allLinks.forEach(function (link) {
+      if (link.getAttribute('href') === activeHref) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+  // Ako nema podudaranja, ostavi active klase iz HTML-a
+
+});

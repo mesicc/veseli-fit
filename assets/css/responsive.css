@@ -1,0 +1,57 @@
+/* ============================================================
+   Coach Veseli – responsive.css
+   ============================================================ */
+
+/* ── Smanji padding postepeno da stane sve ── */
+@media (max-width: 1280px) {
+  .navbar {
+    padding: 0 60px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .navbar {
+    padding: 0 32px;
+  }
+}
+
+/* ── Breakpoint na 1024px – hamburger ── */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .btn-desktop-only {
+    display: none;
+  }
+
+  .btn-hamburger {
+    display: flex;
+  }
+}
+
+/* ── Mobilni (do 480px) ── */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .nav-logo img {
+    height: 40px;
+  }
+
+  .mobile-nav-list li a {
+    font-size: 18px;
+    padding: 16px;
+  }
+
+  .mobile-btns .btn-primary,
+  .mobile-btns .btn-outline {
+    font-size: 13px;
+    padding: 14px;
+  }
+}
