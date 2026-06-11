@@ -62,30 +62,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  /* ── 3. AKTIVAN LINK PREMA URL-u ── */
-  var currentPath = window.location.pathname;
-  var allLinks    = document.querySelectorAll('.nav-links a, .mobile-link');
+  /* ── 3. AKTIVAN LINK ── */
+  // Uzmi trenutni URL i iz njega izvuci filename/path
+  var currentHref = window.location.href;
 
-  // Mapiranje stranica na href vrijednosti
-  var pageMap = {
-    '/':            '#pocetna',
-    '/index.html':  '#pocetna',
-    '/programi/index.html':    '#programi',
-    '/o-meni/index.html':      '#moja-prica',
-    '/kontakt/index.html':     '#kontakt',
-  };
-
-  var activeHref = pageMap[currentPath];
-
-  if (activeHref) {
-    allLinks.forEach(function (link) {
-      if (link.getAttribute('href') === activeHref) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-  // Ako nema podudaranja, ostavi active klase iz HTML-a
+  document.querySelectorAll('.nav-links a, .mobile-link').forEach(function (link) {
+    // Pretvori relativni href u apsolutni URL za poređenje
+    var linkHref = link.href; // browser automatski resolveuje relativne u apsolutne
+    if (linkHref === currentHref) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 
 });
