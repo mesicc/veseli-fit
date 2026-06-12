@@ -529,8 +529,8 @@ main { margin-top: 0; }
 /* Glass card */
 .hero-glass-card {
   position: absolute;
-  bottom: 24px;
-  left: -8px;
+  bottom: 5px;
+  left: 5px;
   z-index: 3;
   background: hsl(220 18% 7% / 0.75);
   backdrop-filter: blur(16px) saturate(160%);
