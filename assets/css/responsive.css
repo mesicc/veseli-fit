@@ -2,56 +2,81 @@
    Coach Veseli – responsive.css
    ============================================================ */
 
-/* ── Smanji padding postepeno da stane sve ── */
-@media (max-width: 1280px) {
-  .navbar {
-    padding: 0 60px;
-  }
-}
+/* ── Navbar padding ── */
+@media (max-width: 1280px) { .navbar { padding: 0 60px; } }
+@media (max-width: 1150px) { .navbar { padding: 0 32px; } }
 
-@media (max-width: 1150px) {
-  .navbar {
-    padding: 0 32px;
-  }
-}
-
-/* ── Breakpoint na 1024px – hamburger ── */
 @media (max-width: 1024px) {
-  .navbar {
-    padding: 0 24px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .btn-desktop-only {
-    display: none;
-  }
-
-  .btn-hamburger {
-    display: flex;
-  }
+  .navbar           { padding: 0 24px; }
+  .nav-links        { display: none; }
+  .btn-desktop-only { display: none; }
+  .btn-hamburger    { display: flex; }
 }
 
-/* ── Mobilni (do 480px) ── */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 0 16px;
-  }
-
-  .nav-logo img {
-    height: 40px;
-  }
-
-  .mobile-nav-list li a {
-    font-size: 18px;
-    padding: 16px;
-  }
-
+  .navbar { padding: 0 16px; }
+  .nav-logo img { height: 40px; }
+  .mobile-nav-list li a { font-size: 16px; padding: 14px 16px; }
   .mobile-btns .btn-primary,
-  .mobile-btns .btn-outline {
-    font-size: 13px;
-    padding: 14px;
+  .mobile-btns .btn-outline { font-size: 13px; padding: 14px; }
+}
+
+/* ── Hero ── */
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding-top: 100px;
   }
+  .hero-text       { order: 1; }
+  .hero-image-wrap { order: 2; }
+  .hero-title    { font-size: 3.75rem; }
+  .hero-stat-num { font-size: 2rem; }
+  .hero-img-container { max-width: 480px; }
+}
+
+/* Tablet (768px–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding-top: 80px;
+    gap: 24px;
+  }
+  .hero-image-wrap { order: 1; }
+  .hero-text       { order: 2; }
+  .hero-title { font-size: 3.25rem; }
+  .hero-img-container { max-width: 360px; margin: 0 auto; }
+}
+
+/* Mali tablet (480px–767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding-top: 72px;
+    gap: 24px;
+  }
+  .hero-image-wrap { order: 1; }
+  .hero-text       { order: 2; }
+  .hero-title { font-size: 2.5rem; }
+  .hero-img-container { max-width: 280px; margin: 0 auto; }
+}
+
+/* Mobilni (do 479px) */
+@media (max-width: 479px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    padding-top: 64px;
+    gap: 16px;
+  }
+  .hero-image-wrap { order: 1; }
+  .hero-text       { order: 2; }
+  .hero-title { font-size: 2rem; }
+  .hero-img-container { max-width: 260px; margin: 0 auto; }
+  .hero-ctas { flex-direction: column; }
+  .hero-btn-primary,
+  .hero-btn-secondary { width: 100%; justify-content: center; }
+  .hero-stats    { gap: 20px; }
+  .hero-stat-num { font-size: 1.5rem; }
 }

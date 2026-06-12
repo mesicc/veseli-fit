@@ -63,17 +63,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   /* ── 3. AKTIVAN LINK ── */
-  // Uzmi trenutni URL i iz njega izvuci filename/path
   var currentHref = window.location.href;
 
   document.querySelectorAll('.nav-links a, .mobile-link').forEach(function (link) {
-    // Pretvori relativni href u apsolutni URL za poređenje
-    var linkHref = link.href; // browser automatski resolveuje relativne u apsolutne
-    if (linkHref === currentHref) {
+    if (link.href === currentHref) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
     }
   });
+
+
+  /* ── 4. NAVBAR SCROLL EFEKT ── */
+  var navbar = document.querySelector('.navbar');
+
+  function onScroll() {
+    navbar.classList.toggle('navbar--scrolled', window.scrollY > 20);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
 });

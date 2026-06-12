@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coach Veseli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
@@ -11,24 +14,15 @@
 
   <!-- ═══════════ NAVBAR ═══════════ -->
   <nav class="navbar" role="navigation" aria-label="Glavna navigacija">
-
     <a href="index.html" class="nav-logo" aria-label="Coach Veseli – početna">
       <img src="assets/images/logo.png" alt="Coach Veseli" />
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="index.html">
-        <span class="num">01</span> Početna <span class="sep">//</span>
-      </a></li>
-      <li><a href="programi/index.html">
-        <span class="num">02</span> Programi <span class="sep">//</span>
-      </a></li>
-      <li><a href="moja-prica/index.html">
-        <span class="num">03</span> Moja priča <span class="sep">//</span>
-      </a></li>
-      <li><a href="kontakt/index.html">
-        <span class="num">04</span> Kontakt <span class="sep">//</span>
-      </a></li>
+      <li><a href="index.html"><span class="num">01</span> Početna <span class="sep">//</span></a></li>
+      <li><a href="programi/index.html"><span class="num">02</span> Programi <span class="sep">//</span></a></li>
+      <li><a href="moja-prica/index.html"><span class="num">03</span> Moja priča <span class="sep">//</span></a></li>
+      <li><a href="kontakt/index.html"><span class="num">04</span> Kontakt <span class="sep">//</span></a></li>
     </ul>
 
     <div class="nav-controls">
@@ -41,12 +35,10 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
         </svg>
       </button>
-      <button class="btn-primary btn-desktop-only">Počni trening</button>
-      <button class="btn-outline btn-desktop-only">Kupi program</button>
+      <a href="kontakt/index.html" class="btn-primary btn-desktop-only">Počni trening</a>
+      <a href="programi/index.html" class="btn-outline btn-desktop-only">Kupi program</a>
       <button class="btn-hamburger" id="menuOpen" aria-label="Otvori meni" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
@@ -54,7 +46,7 @@
   <!-- ═══════════ MOBILE MENU ═══════════ -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobilna navigacija">
     <div class="mobile-menu-header">
-      <a href="index.html" class="nav-logo" aria-label="Coach Veseli">
+      <a href="index.html" class="nav-logo">
         <img src="assets/images/logo.png" alt="Coach Veseli" />
       </a>
       <div class="mobile-menu-header-controls">
@@ -76,27 +68,96 @@
     </div>
 
     <ul class="mobile-nav-list" role="list">
-      <li><a href="index.html" class="mobile-link">
-        <span class="num">01</span> Početna
-      </a></li>
-      <li><a href="programi/index.html" class="mobile-link">
-        <span class="num">02</span> Programi
-      </a></li>
-      <li><a href="moja-prica/index.html" class="mobile-link">
-        <span class="num">03</span> Moja priča
-      </a></li>
-      <li><a href="kontakt/index.html" class="mobile-link">
-        <span class="num">04</span> Kontakt
-      </a></li>
+      <li><a href="index.html" class="mobile-link"><span class="num">01</span> Početna</a></li>
+      <li><a href="programi/index.html" class="mobile-link"><span class="num">02</span> Programi</a></li>
+      <li><a href="moja-prica/index.html" class="mobile-link"><span class="num">03</span> Moja priča</a></li>
+      <li><a href="kontakt/index.html" class="mobile-link"><span class="num">04</span> Kontakt</a></li>
     </ul>
 
     <div class="mobile-btns">
-      <button class="btn-primary">Počni trening</button>
-      <button class="btn-outline">Kupi program</button>
+      <a href="kontakt/index.html" class="btn-primary">Počni trening</a>
+      <a href="programi/index.html" class="btn-outline">Kupi program</a>
     </div>
   </div>
 
-  <main></main>
+  <!-- ═══════════ INSTAGRAM FAB ═══════════ -->
+  <a href="https://www.instagram.com/coachveseli" target="_blank" rel="noopener" class="ig-fab" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <main>
+    <section class="hero" id="hero">
+
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+
+      <div class="hero-container">
+
+        <!-- Lijevi stub -->
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="hero-line hero-line--1">Personalni Trener Veseli</span>
+            <span class="hero-line hero-line--2">Banja Luka</span>
+            <span class="hero-line hero-line--3"><em class="hero-amp">&amp;</em> Online Mentorstvo</span>
+          </h1>
+
+          <p class="hero-desc">
+            Prilagođeni planovi treninga, mentorstvo i rezultati koji traju.<br>
+            Napusti zonu komfora i postani <strong class="hero-desc-bold">najbolja verzija sebe.</strong>
+          </p>
+
+          <div class="hero-ctas">
+            <a href="kontakt/index.html" class="hero-btn-primary">
+              Započni danas
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="programi/index.html" class="hero-btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Pogledaj programe
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num">7+</span>
+              <span class="hero-stat-label">Godina iskustva</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">150+</span>
+              <span class="hero-stat-label">Zadovoljnih klijenata</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">10+</span>
+              <span class="hero-stat-label">Godina u sportu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desni stub -->
+        <div class="hero-image-wrap">
+          <div class="hero-bracket hero-bracket--tr" aria-hidden="true"></div>
+          <div class="hero-bracket hero-bracket--bl" aria-hidden="true"></div>
+
+          <div class="hero-img-container">
+            <img src="assets/images/trener.png" alt="Coach Veseli – personalni trener Banja Luka" class="hero-img" />
+          </div>
+
+          <div class="hero-glass-card" aria-label="Online coaching 24/7">
+            <div class="hero-glass-top">
+              <span class="hero-glass-dot" aria-hidden="true"></span>
+              <span class="hero-glass-label">Online Coaching</span>
+            </div>
+            <div class="hero-glass-value">24<span class="hero-glass-slash">/</span>7</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
 
   <script src="assets/js/main.js"></script>
 </body>
