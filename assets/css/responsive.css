@@ -28,7 +28,7 @@
   .hero-container {
     grid-template-columns: 1fr 1fr;
     gap: 48px;
-    padding-top: 100px;
+    padding-top: 40px;
   }
   .hero-text       { order: 1; }
   .hero-image-wrap { order: 2; }
@@ -41,7 +41,7 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-container {
     grid-template-columns: 1fr;
-    padding-top: 80px;
+    padding-top: 32px;
     gap: 24px;
   }
   .hero-image-wrap { order: 1; }
@@ -54,7 +54,7 @@
 @media (min-width: 480px) and (max-width: 767px) {
   .hero-container {
     grid-template-columns: 1fr;
-    padding-top: 72px;
+    padding-top: 24px;
     gap: 24px;
   }
   .hero-image-wrap { order: 1; }
@@ -67,7 +67,7 @@
 @media (max-width: 479px) {
   .hero-container {
     grid-template-columns: 1fr;
-    padding-top: 64px;
+    padding-top: 16px;
     gap: 16px;
   }
   .hero-image-wrap { order: 1; }

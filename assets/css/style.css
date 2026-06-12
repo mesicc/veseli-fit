@@ -64,18 +64,17 @@ body.menu-open { overflow: hidden; }
   display: flex;
   align-items: center;
   padding: 0 100px;
-  background-color: hsl(220, 22%, 5%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 [data-theme="light"] .navbar {
-  background-color: hsl(40, 20%, 94%);
-  border-bottom-color: rgba(0, 0, 0, 0.08);
+  background-color: transparent;
 }
 
 .navbar--scrolled {
-  background-color: hsl(220, 22%, 5%);
+  background-color: hsl(220, 18%, 7%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom-color: rgba(255, 255, 255, 0.1);
@@ -83,6 +82,7 @@ body.menu-open { overflow: hidden; }
 
 [data-theme="light"] .navbar--scrolled {
   background-color: hsl(40, 20%, 96%);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar::before {
@@ -329,9 +329,10 @@ body.menu-open { overflow: hidden; }
    HERO
 ═══════════════════════════════════════ */
 
-main { margin-top: var(--nav-h); }
+main { margin-top: 0; }
 
 .hero {
+  padding-top: var(--nav-h);
   position: relative;
   overflow: hidden;
   background-color: hsl(220, 18%, 7%);
@@ -359,7 +360,7 @@ main { margin-top: var(--nav-h); }
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 1.5rem 60px;
+  padding: 40px 1.5rem 60px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
