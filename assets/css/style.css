@@ -589,3 +589,61 @@ main { margin-top: 0; }
   .hero-glass-card { animation: none; }
   .hero-glass-dot  { animation: none; }
 }
+
+/* ═══════════════════════════════════════
+   MARQUEE TRAKA
+═══════════════════════════════════════ */
+ 
+.marquee {
+  width: 100%;
+  background-color: var(--primary);
+  padding: 14px 0;
+  overflow: hidden;
+  border-top: 1px solid hsl(40 18% 94% / 0.1);
+  border-bottom: 1px solid hsl(40 18% 94% / 0.1);
+}
+ 
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+ 
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+ 
+.marquee-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+ 
+.marquee-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: var(--primary-fg);
+  padding: 0 24px;
+}
+ 
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: hsl(220 30% 6% / 0.5);
+  flex-shrink: 0;
+}
+ 
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+ 
