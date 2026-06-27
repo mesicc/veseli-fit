@@ -2,7 +2,7 @@
    Coach Veseli – responsive.css
    ============================================================ */
 
-/* ── Navbar padding ── */
+/* ── Navbar ── */
 @media (max-width: 1280px) { .navbar { padding: 0 60px; } }
 @media (max-width: 1150px) { .navbar { padding: 0 32px; } }
 
@@ -23,7 +23,6 @@
 
 /* ── Hero ── */
 
-/* Desktop (≥1024px) */
 @media (min-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr 1fr;
@@ -37,55 +36,41 @@
   .hero-img-container { max-width: 480px; }
 }
 
-/* Tablet (768px–1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-container {
     grid-template-columns: 1fr;
     padding-top: 32px;
     gap: 0;
   }
-  .hero-image-wrap {
-    order: 1;
-    margin-bottom: 40px;
-  }
+  .hero-image-wrap { order: 1; margin-bottom: 40px; }
   .hero-text       { order: 2; }
   .hero-title { font-size: 3.25rem; }
   .hero-img-container { max-width: 360px; margin: 0 auto; }
-
   .hero-bracket--tr { top: -10px; right: -10px; width: 60px; height: 60px; }
   .hero-bracket--bl { bottom: -10px; left: -10px; width: 60px; height: 60px; }
 }
 
-/* Mali tablet (480px–767px) */
 @media (min-width: 480px) and (max-width: 767px) {
   .hero-container {
     grid-template-columns: 1fr;
     padding-top: 24px;
     gap: 0;
   }
-  .hero-image-wrap {
-    order: 1;
-    margin-bottom: 32px;
-  }
+  .hero-image-wrap { order: 1; margin-bottom: 32px; }
   .hero-text       { order: 2; }
   .hero-title { font-size: 2.5rem; }
   .hero-img-container { max-width: 280px; margin: 0 auto; }
-
   .hero-bracket--tr { top: -10px; right: -10px; width: 50px; height: 50px; }
   .hero-bracket--bl { bottom: -10px; left: -10px; width: 50px; height: 50px; }
 }
 
-/* Mobilni (do 479px) */
 @media (max-width: 479px) {
   .hero-container {
     grid-template-columns: 1fr;
     padding-top: 16px;
     gap: 0;
   }
-  .hero-image-wrap {
-    order: 1;
-    margin-bottom: 32px;
-  }
+  .hero-image-wrap { order: 1; margin-bottom: 32px; }
   .hero-text       { order: 2; }
   .hero-title { font-size: 2rem; }
   .hero-img-container { max-width: 260px; margin: 0 auto; }
@@ -94,8 +79,36 @@
   .hero-btn-secondary { width: 100%; justify-content: center; }
   .hero-stats    { gap: 20px; }
   .hero-stat-num { font-size: 1.5rem; }
-
-  /* Bracket bliže slici na mobilnom */
   .hero-bracket--tr { top: -10px; right: -10px; width: 50px; height: 50px; }
   .hero-bracket--bl { bottom: -10px; left: -10px; width: 50px; height: 50px; }
+}
+
+/* ── About ── */
+
+@media (min-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .about-title { font-size: 3.25rem; }
+  .about-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about { padding: 72px 0; }
+  .about-title { font-size: 2.5rem; }
+  .about-cards { grid-template-columns: repeat(3, 1fr); }
+  .about-img-card { max-width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .about { padding: 60px 0; }
+  .about-title { font-size: 2rem; }
+  .about-badge { right: 8px; bottom: -20px; }
+  .about-image-wrap { margin-bottom: 48px; }
+}
+
+@media (max-width: 479px) {
+  .about { padding: 48px 0; }
+  .about-title { font-size: 1.75rem; }
 }
