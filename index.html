@@ -1,243 +1,52 @@
 <!DOCTYPE html>
-<html lang="bs" data-theme="dark">
+<html lang="bs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coach Veseli</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coach Veseli — Personalni trener Banja Luka</title>
+    <meta name="description" content="Online coaching, treninzi i ishrana s personalnim trenerom Nemanjom Veselinovićem iz Banje Luke." />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo"><img src="assets/img/logo-veseli.jpg" alt="Coach Veseli" /></a>
 
-  <!-- ═══════════ NAVBAR SEKCIJA ═══════════ -->
-  <nav class="navbar" role="navigation" aria-label="Glavna navigacija">
-    <a href="index.html" class="nav-logo" aria-label="Coach Veseli – početna">
-      <img src="assets/images/logo.png" alt="Coach Veseli" />
-    </a>
-
-    <ul class="nav-links" role="list">
-      <li><a href="index.html"><span class="num">01</span> Početna <span class="sep">//</span></a></li>
-      <li><a href="programi/index.html"><span class="num">02</span> Programi <span class="sep">//</span></a></li>
-      <li><a href="moja-prica/index.html"><span class="num">03</span> Moja priča <span class="sep">//</span></a></li>
-      <li><a href="kontakt/index.html"><span class="num">04</span> Kontakt <span class="sep">//</span></a></li>
-    </ul>
-
-    <div class="nav-controls">
-      <button class="btn-theme" id="themeToggle" aria-label="Promijeni temu">
-        <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-          <circle cx="12" cy="12" r="4"/>
-          <path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="hidden">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
-        </svg>
-      </button>
-      <a href="kontakt/index.html" class="btn-primary btn-desktop-only">Počni trening</a>
-      <a href="programi/index.html" class="btn-outline btn-desktop-only">Kupi program</a>
-      <button class="btn-hamburger" id="menuOpen" aria-label="Otvori meni" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ═══════════ MOBILE MENU SEKCIJA ═══════════ -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobilna navigacija">
-    <div class="mobile-menu-header">
-      <a href="index.html" class="nav-logo">
-        <img src="assets/images/logo.png" alt="Coach Veseli" />
-      </a>
-      <div class="mobile-menu-header-controls">
-        <button class="btn-theme" id="themeToggleMobile" aria-label="Promijeni temu">
-          <svg id="iconSunMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="12" r="4"/>
-            <path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-          </svg>
-          <svg id="iconMoonMobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="hidden">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
-          </svg>
-        </button>
-        <button class="btn-close" id="menuClose" aria-label="Zatvori meni">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <ul class="mobile-nav-list" role="list">
-      <li><a href="index.html" class="mobile-link"><span class="num">01</span> Početna</a></li>
-      <li><a href="programi/index.html" class="mobile-link"><span class="num">02</span> Programi</a></li>
-      <li><a href="moja-prica/index.html" class="mobile-link"><span class="num">03</span> Moja priča</a></li>
-      <li><a href="kontakt/index.html" class="mobile-link"><span class="num">04</span> Kontakt</a></li>
-    </ul>
-
-    <div class="mobile-btns">
-      <a href="kontakt/index.html" class="btn-primary">Počni trening</a>
-      <a href="programi/index.html" class="btn-outline">Kupi program</a>
-    </div>
-  </div>
-
-  <!-- ═══════════ INSTAGRAM Fab ═══════════ -->
-  <a href="https://www.instagram.com/ve.se.li" target="_blank" rel="noopener" class="ig-fab" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <circle cx="12" cy="12" r="4"/>
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-    </svg>
-  </a>
-
-  <main>
-
-    <!-- ═══════════ HERO SEKCIJA ═══════════ -->
-    <section class="hero" id="hero">
-      <div class="hero-grid-bg" aria-hidden="true"></div>
-      <div class="hero-container">
-
-        <div class="hero-text">
-          <h1 class="hero-title">
-            <span class="hero-line hero-line--1">Personalni Trener Veseli</span>
-            <span class="hero-line hero-line--2">Banja Luka</span>
-            <span class="hero-line hero-line--3"><em class="hero-amp">&amp;</em> Online Mentorstvo</span>
-          </h1>
-
-          <p class="hero-desc">
-            Prilagođeni planovi treninga, mentorstvo i rezultati koji traju.
-            Napusti zonu komfora i postani <strong class="hero-desc-bold">najbolja verzija sebe.</strong>
-          </p>
-
-          <div class="hero-ctas">
-            <a href="kontakt/index.html" class="hero-btn-primary">
-              Započni danas
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </a>
-            <a href="programi/index.html" class="hero-btn-secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Pogledaj programe
-            </a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <span class="hero-stat-num">7+</span>
-              <span class="hero-stat-label">Godina iskustva</span>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active"><span class="num">01</span><span class="label">Početna</span><span class="slash">//</span></a>
+                <a href="programi/" class="nav-link"><span class="num">02</span><span class="label">Programi</span><span class="slash">//</span></a>
+                <a href="o-meni/" class="nav-link"><span class="num">03</span><span class="label">Moja priča</span><span class="slash">//</span></a>
+                <a href="kontakt/" class="nav-link"><span class="num">04</span><span class="label">Kontakt</span><span class="slash">//</span></a>
             </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">150+</span>
-              <span class="hero-stat-label">Zadovoljnih klijenata</span>
+
+            <div class="nav-cta">
+                <a href="kontakt/" class="btn btn-primary">Počni Trening</a>
+                <a href="https://coachveseli.gumroad.com/l/goyhd" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Kupi Program</a>
             </div>
-            <div class="hero-stat">
-              <span class="hero-stat-num">10+</span>
-              <span class="hero-stat-label">Godina u sportu</span>
+
+            <div class="nav-toggle-wrap">
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    <svg class="icon-close" style="display:none" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
             </div>
-          </div>
         </div>
 
-        <div class="hero-image-wrap">
-          <div class="hero-bracket hero-bracket--tr" aria-hidden="true"></div>
-          <div class="hero-bracket hero-bracket--bl" aria-hidden="true"></div>
-          <div class="hero-img-container">
-            <img src="assets/images/trener.png" alt="Coach Veseli – personalni trener Banja Luka" class="hero-img" />
-          </div>
-          <div class="hero-glass-card" aria-label="Online coaching 24/7">
-            <div class="hero-glass-top">
-              <span class="hero-glass-dot" aria-hidden="true"></span>
-              <span class="hero-glass-label">Online Coaching</span>
+        <div class="mobile-menu">
+            <div class="mobile-menu-inner">
+                <a href="index.html" class="mobile-link active"><span class="num">01</span>Početna</a>
+                <a href="programi/" class="mobile-link"><span class="num">02</span>Programi</a>
+                <a href="o-meni/" class="mobile-link"><span class="num">03</span>Moja priča</a>
+                <a href="kontakt/" class="mobile-link"><span class="num">04</span>Kontakt</a>
+                <div class="mobile-cta">
+                    <a href="kontakt/" class="btn btn-primary">Počni Trening</a>
+                    <a href="https://coachveseli.gumroad.com/l/goyhd" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Kupi Program</a>
+                </div>
             </div>
-            <div class="hero-glass-value">24<span class="hero-glass-slash">/</span>7</div>
-          </div>
         </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════════ MARQUEE  SEKCIJA - PLAVA TRAKA═══════════ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <div class="marquee-inner">
-          <span class="marquee-item">Trening</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Ishrana</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Mentorstvo</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Snaga</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Disciplina</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Fokus</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Rezultati</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Napredak</span><span class="marquee-dot"></span>
-        </div>
-        <div class="marquee-inner" aria-hidden="true">
-          <span class="marquee-item">Trening</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Ishrana</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Mentorstvo</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Snaga</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Disciplina</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Fokus</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Rezultati</span><span class="marquee-dot"></span>
-          <span class="marquee-item">Napredak</span><span class="marquee-dot"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════ O MENI SEKCIJA ═══════════ -->
-    <section class="about" id="o-meni">
-      <div class="about-container">
-
-        <!-- Lijevo: slika -->
-        <div class="about-image-wrap">
-          <div class="about-img-card">
-            <img src="assets/images/o-meni.jpeg" alt="Coach Veseli u teretani" class="about-img" />
-          </div>
-          <div class="about-badge">
-            <span class="about-badge-num">10+</span>
-            <span class="about-badge-label">God. iskustva</span>
-          </div>
-        </div>
-
-        <!-- Desno: tekst -->
-        <div class="about-text">
-          <div class="about-label">
-            <span class="about-label-line"></span>
-            <span class="about-label-text">O meni</span>
-          </div>
-
-          <h2 class="about-title">
-            Tvoj online fitness <span class="about-title-outline">partner</span>
-          </h2>
-
-          <p class="about-desc">
-            Kao certificirani trener i diplomirani profesor fizičkog vaspitanja, posvećen
-            sam radu sa svakim klijentom bez obzira na pol, godine ili početni nivo. Kroz
-            personalizovane programe dobiješ jasnu strategiju, video demonstracije i
-            kontinuiranu podršku.
-          </p>
-
-          <div class="about-cards">
-            <div class="about-card">
-              <h3 class="about-card-title">Vođen strašću</h3>
-              <p class="about-card-desc">Fitness je moj način života i svakodnevna posvećenost.</p>
-            </div>
-            <div class="about-card">
-              <h3 class="about-card-title">Sa razumijevanjem</h3>
-              <p class="about-card-desc">Pristup pažljiv, bez pritiska i nerealnih obećanja.</p>
-            </div>
-            <div class="about-card">
-              <h3 class="about-card-title">Vjerujem u proces</h3>
-              <p class="about-card-desc">Fokus na dugoročne rezultate i zdrave navike.</p>
-            </div>
-          </div>
-
-          <a href="moja-prica/index.html" class="about-link">
-            Pročitaj cijelu priču
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <script src="assets/js/main.js"></script>
+    </nav>
+  
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

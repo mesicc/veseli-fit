@@ -1,87 +1,150 @@
 /* ============================================================
    Coach Veseli – main.js
    ============================================================ */
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  /* ── 1. THEME TOGGLE ── */
-  var html              = document.documentElement;
-  var themeToggle       = document.getElementById('themeToggle');
-  var themeToggleMobile = document.getElementById('themeToggleMobile');
-  var iconSun           = document.getElementById('iconSun');
-  var iconMoon          = document.getElementById('iconMoon');
-  var iconSunMobile     = document.getElementById('iconSunMobile');
-  var iconMoonMobile    = document.getElementById('iconMoonMobile');
-
-  function setTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('veseli-theme', theme);
-    var isDark = theme === 'dark';
-    iconSun.classList.toggle('hidden', !isDark);
-    iconMoon.classList.toggle('hidden', isDark);
-    iconSunMobile.classList.toggle('hidden', !isDark);
-    iconMoonMobile.classList.toggle('hidden', isDark);
+// ===== NAVBAR: scroll state + mobile menu =====
+(function () {
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    const onScroll = () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  function toggleTheme() {
-    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  const toggleBtn = document.querySelector(".nav-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const iconMenu = document.querySelector(".icon-menu");
+  const iconClose = document.querySelector(".icon-close");
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      if (iconMenu && iconClose) {
+        iconMenu.style.display = isOpen ? "none" : "block";
+        iconClose.style.display = isOpen ? "block" : "none";
+      }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        if (iconMenu && iconClose) {
+          iconMenu.style.display = "block";
+          iconClose.style.display = "none";
+        }
+      });
+    });
   }
+})();
 
-  setTheme(localStorage.getItem('veseli-theme') || 'dark');
-  themeToggle.addEventListener('click', toggleTheme);
-  themeToggleMobile.addEventListener('click', toggleTheme);
+// ===== SCROLL REVEAL (replaces framer-motion whileInView) =====
+(function () {
+  const items = document.querySelectorAll(".reveal");
+  if (!items.length) return;
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
 
-  /* ── 2. MOBILE MENU ── */
-  var mobileMenu  = document.getElementById('mobileMenu');
-  var menuOpen    = document.getElementById('menuOpen');
-  var menuClose   = document.getElementById('menuClose');
-  var mobileLinks = document.querySelectorAll('.mobile-link');
+  items.forEach((el) => observer.observe(el));
+})();
 
-  function openMenu() {
-    mobileMenu.classList.add('open');
-    menuOpen.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('menu-open');
-  }
+// ===== COUNTERS (stats section) =====
+(function () {
+  const counters = document.querySelectorAll("[data-counter]");
+  if (!counters.length) return;
 
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    menuOpen.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('menu-open');
-  }
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute("data-counter"), 10);
+    const suffix = el.getAttribute("data-suffix") || "";
+    const step = Math.ceil(target / 60);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        el.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        el.textContent = current + suffix;
+      }
+    }, 20);
+  };
 
-  menuOpen.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
 
-  mobileLinks.forEach(function (link) {
-    link.addEventListener('click', closeMenu);
-  });
+  counters.forEach((el) => observer.observe(el));
+})();
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
+// ===== SKILL BARS (about page) =====
+(function () {
+  const bars = document.querySelectorAll(".skill-fill");
+  if (!bars.length) return;
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const pct = el.getAttribute("data-pct");
+          requestAnimationFrame(() => {
+            el.style.width = pct + "%";
+          });
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
 
-  /* ── 3. AKTIVAN LINK ── */
-  var currentHref = window.location.href;
+  bars.forEach((el) => observer.observe(el));
+})();
 
-  document.querySelectorAll('.nav-links a, .mobile-link').forEach(function (link) {
-    if (link.href === currentHref) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
-  });
+// ===== TESTIMONIALS CAROUSEL =====
+(function () {
+  const cards = document.querySelectorAll(".testi-card");
+  const dots = document.querySelectorAll(".testi-dot");
+  const prevBtn = document.querySelector(".testi-nav.prev");
+  const nextBtn = document.querySelector(".testi-nav.next");
+  if (!cards.length) return;
 
+  let current = 0;
+  const total = cards.length;
 
-  /* ── 4. NAVBAR SCROLL EFEKT ── */
-  var navbar = document.querySelector('.navbar');
+  const show = (index) => {
+    cards.forEach((c, i) => {
+      c.classList.remove("active", "leaving-left");
+      if (i === index) c.classList.add("active");
+    });
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+    current = index;
+  };
 
-  function onScroll() {
-    navbar.classList.toggle('navbar--scrolled', window.scrollY > 20);
-  }
+  const next = () => show((current + 1) % total);
+  const prev = () => show((current - 1 + total) % total);
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  if (nextBtn) nextBtn.addEventListener("click", next);
+  if (prevBtn) prevBtn.addEventListener("click", prev);
+  dots.forEach((d, i) => d.addEventListener("click", () => show(i)));
 
-});
+  show(0);
+  setInterval(next, 45000);
+})();
