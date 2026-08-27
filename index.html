@@ -3,9 +3,95 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coach Veseli — Personalni trener Banja Luka</title>
-    <meta name="description" content="Online coaching, treninzi i ishrana s personalnim trenerom Nemanjom Veselinovićem iz Banje Luke." />
+    <title>Personalni Trener Banja Luka i Online Coaching | Coach Veseli</title>
+    <meta name="description" content="Personalni trener u Banjoj Luci i online coaching širom BiH i regiona. Individualni planovi treninga i ishrane s Nemanjom Veselinovićem. Zakaži besplatnu konsultaciju." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Nemanja Veselinović" />
+    <link rel="canonical" href="https://veseli.fit/" />
+    <link rel="icon" type="image/jpeg" href="assets/img/logo-veseli.jpg" />
+    <link rel="apple-touch-icon" href="assets/img/logo-veseli.jpg" />
+    <meta name="theme-color" content="#0f1115" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Coach Veseli" />
+    <meta property="og:locale" content="bs_BA" />
+    <meta property="og:url" content="https://veseli.fit/" />
+    <meta property="og:title" content="Personalni Trener Banja Luka i Online Coaching | Coach Veseli" />
+    <meta property="og:description" content="Personalni trener u Banjoj Luci i online coaching širom BiH i regiona. Individualni planovi treninga i ishrane s Nemanjom Veselinovićem." />
+    <meta property="og:image" content="https://veseli.fit/assets/img/hero-coach.png" />
+    <meta property="og:image:alt" content="Nemanja Veselinović — personalni trener, Coach Veseli" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Personalni Trener Banja Luka i Online Coaching | Coach Veseli" />
+    <meta name="twitter:description" content="Personalni trener u Banjoj Luci i online coaching širom BiH i regiona. Individualni planovi treninga i ishrane s Nemanjom Veselinovićem." />
+    <meta name="twitter:image" content="https://veseli.fit/assets/img/hero-coach.png" />
+
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Structured data: lokalni biznis + trener -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ExerciseGym",
+          "@id": "https://veseli.fit/#business",
+          "name": "Coach Veseli — Personalni trener Banja Luka",
+          "url": "https://veseli.fit/",
+          "image": "https://veseli.fit/assets/img/hero-coach.png",
+          "logo": "https://veseli.fit/assets/img/logo-veseli.jpg",
+          "description": "Personalni trener i online coaching — individualni planovi treninga, ishrane i mentorstva za klijente u Banjoj Luci, širom Bosne i Hercegovine i online.",
+          "email": "info@veseli.fit",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Banja Luka",
+            "addressRegion": "Republika Srpska",
+            "addressCountry": "BA"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Banja Luka" },
+            { "@type": "Country", "name": "Bosna i Hercegovina" },
+            { "@type": "Place", "name": "Online / cijeli svijet" }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/ve.se.li/"
+          ],
+          "employee": { "@id": "https://veseli.fit/o-meni/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://veseli.fit/o-meni/#person",
+          "name": "Nemanja Veselinović",
+          "alternateName": "Coach Veseli",
+          "jobTitle": "Personalni trener",
+          "worksFor": { "@id": "https://veseli.fit/#business" },
+          "url": "https://veseli.fit/o-meni/",
+          "image": "https://veseli.fit/assets/img/about-me.jpg",
+          "sameAs": [
+            "https://www.instagram.com/ve.se.li/"
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Online personalni trening",
+          "serviceType": "Personalni trening i online coaching",
+          "provider": { "@id": "https://veseli.fit/#business" },
+          "areaServed": { "@type": "Place", "name": "Online / cijeli svijet" },
+          "url": "https://veseli.fit/programi/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://veseli.fit/#website",
+          "url": "https://veseli.fit/",
+          "name": "Coach Veseli",
+          "inLanguage": "bs"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- ═══ NAVBAR ═══ -->

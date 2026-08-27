@@ -493,8 +493,8 @@ section.section { padding: 5rem 0; }
 }
 .testi-nav:hover { background: var(--c-primary); color: var(--c-primary-fg); border-color: var(--c-primary); }
 .testi-nav:active { transform: translateY(-50%) scale(0.95); }
-.testi-nav.prev { left: 0; }
-.testi-nav.next { right: 0; }
+.testi-nav.prev { left: -5px; }
+.testi-nav.next { right: -5px; }
 @media (min-width: 1024px) { .testi-nav.prev { margin-left: -4rem; } .testi-nav.next { margin-right: -4rem; } }
 
 .testi-viewport { position: relative; min-height: 340px; }
