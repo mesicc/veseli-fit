@@ -45,7 +45,7 @@
             "@type": "ExerciseGym",
             "@id": "https://veseli.fit/#business",
             "name": "Coach Veseli",
-            "email": "info@veseli.fit",
+            "email": "nemanja@vese.li",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Banja Luka",
@@ -112,48 +112,54 @@
             <div class="contact-grid">
             <!-- Left — form -->
             <div class="contact-form-col reveal">
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form" action="send.php" method="post" novalidate>
                     <div class="contact-form-head">
                         <h2>Pošalji poruku</h2>
                         <p>Unesi podatke i ciljeve:</p>
                     </div>
 
+                    <!-- honeypot — sakriveno od ljudi, botovi ga popune -->
+                    <div style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden;" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+                    </div>
+
                     <div class="form-row-2">
                         <div class="field">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <input type="text" placeholder="Ime i prezime" required />
+                            <input type="text" name="name" placeholder="Ime i prezime" required />
                         </div>
                         <div class="field">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <input type="email" placeholder="Email adresa" required />
+                            <input type="email" name="email" placeholder="Email adresa" required />
                         </div>
                     </div>
 
                     <div class="form-row-3">
                         <div class="field">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.632 1.596l-.465.355a1 1 0 0 0-.303 1.213 12.035 12.035 0 0 0 6.232 6.404Z"/></svg>
-                            <input type="tel" placeholder="Telefon" />
+                            <input type="tel" name="phone" placeholder="Telefon" />
                         </div>
                         <div class="field">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
-                            <input type="text" placeholder="Visina (cm)" />
+                            <input type="text" name="height" placeholder="Visina (cm)" />
                         </div>
                         <div class="field">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-2 1.6l-1.5 8A2 2 0 0 0 5 20h14a2 2 0 0 0 2-2.4l-1.5-8a2 2 0 0 0-2-1.6Z"/></svg>
-                            <input type="text" placeholder="Kilaža (kg)" />
+                            <input type="text" name="weight" placeholder="Kilaža (kg)" />
                         </div>
                     </div>
 
                     <div class="field-grow field textarea">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        <textarea placeholder="Tvoji ciljevi, trenutni nivo treninga, način ishrane..."></textarea>
+                        <textarea name="message" placeholder="Tvoji ciljevi, trenutni nivo treninga, način ishrane..."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                         Pošalji poruku
                     </button>
-                    <p id="form-status" style="font-size:0.8rem;color:var(--c-primary);text-align:center;display:none;">Hvala! Poruka je pripremljena — javit ću ti se uskoro. (Demo forma bez servera)</p>
+                    <p id="form-status" style="font-size:0.8rem;text-align:center;display:none;"></p>
                 </form>
             </div>
 
@@ -177,11 +183,11 @@
                             </div>
                             <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                         </a>
-                        <a href="mailto:info@veseli.fit" class="contact-info-row">
+                        <a href="mailto:nemanja@vese.li" class="contact-info-row">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                             <div style="flex:1;">
                                 <p class="lbl">Email</p>
-                                <p class="val">info@veseli.fit</p>
+                                <p class="val">nemanja@vese.li</p>
                             </div>
                             <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                         </a>

@@ -118,6 +118,56 @@
   bars.forEach((el) => observer.observe(el));
 })();
 
+// ===== KONTAKT FORMA (AJAX submit na send.php) =====
+(function () {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  const status = document.getElementById("form-status");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn ? submitBtn.innerHTML : "";
+
+  const setStatus = (message, isError) => {
+    if (!status) return;
+    status.textContent = message;
+    status.style.color = isError ? "#ef4444" : "var(--c-primary)";
+    status.style.display = message ? "block" : "none";
+  };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    setStatus("", false);
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = "Šalje se...";
+    }
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then((res) => res.json().catch(() => ({ success: false, message: "Neočekivan odgovor servera." })))
+      .then((data) => {
+        setStatus(
+          data.message || (data.success ? "Poruka je poslata!" : "Došlo je do greške."),
+          !data.success
+        );
+        if (data.success) form.reset();
+      })
+      .catch(() => {
+        setStatus("Greška u konekciji. Provjeri internet i pokušaj ponovo.", true);
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitLabel;
+        }
+      });
+  });
+})();
+
 // ===== TESTIMONIALS CAROUSEL =====
 (function () {
   const cards = document.querySelectorAll(".testi-card");
